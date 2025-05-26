@@ -1,0 +1,195 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FFFFFF;
+  color: #2C3E50; 
+  padding-top: 70px; 
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #2C3E50; 
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 26px;
+  color: #FFFFFF;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+header li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+header li a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #D3D3D3; 
+  width: 0;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+header li a:hover {
+  color: #D3D3D3; 
+}
+
+header li a:hover::after {
+  width: 100%;
+}
+
+section {
+  padding: 40px 30px;
+}
+
+section h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #2C3E50; /* Azul escuro */
+}
+
+section p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  header h1 {
+    margin-bottom: 10px;
+  }
+
+  header ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  header li a {
+    font-size: 18px;
+  }
+}
+
+/* Container geral de cada seção */
+.container-secao {
+  margin-bottom: 60px;
+}
+
+/* Bloco com imagem de fundo */
+.bloco-secao {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* posiciona conteúdo na parte de baixo */
+}
+
+/* Sobreposição escura na imagem */
+.bloco-secao::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 62, 80, 0.5);
+  z-index: 0;
+}
+
+/* Título no canto inferior esquerdo */
+.bloco-secao h2 {
+  position: relative;
+  font-size: 42px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 40px;
+  z-index: 1;
+  align-self: flex-start;
+}
+
+/* Parágrafos após a imagem */
+.bloco-secao p {
+  font-size: 18px;
+  margin: 20px 40px;
+  z-index: 1;
+  line-height: 1.6;
+  color: #fff; /*Aqui é a cor das letras do parágrafo*/
+}
+
+.rodape {
+  background-color: rgba(44, 62, 80, 0.9); /* azul escuro translúcido */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 60px;
+}
+
+.rodape-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.rodape p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.rodape-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.rodape-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.rodape-links a:hover {
+  color: #f39c12; /* cor dourada para hover */
+}
+
