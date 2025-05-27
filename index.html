@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
     <title>HydroSafe</title>
 </head>
-<body> 
-     <header id="cabecalho">
+<body>
+    <header id="cabecalho">
         <h1>HydroSafe</h1>
         <ul>
             <li><a href="#secao-1">PROBLEMA</a></li>
             <li><a href="#secao-2">TECNOLOGIAS</a></li>
-            <li><a href="#secao-3">OBJETIVOS</a></li> 
+            <li><a href="#secao-3">OBJETIVOS</a></li>
             <li><a href="#secao-4">PÚBLICO-ALVO</a></li>
             <li><a href="#secao-5">BENEFÍCIOS</a></li>
             <li><a href="#secao-6">UTILIZAÇÃO</a></li>
@@ -22,88 +22,95 @@
     </header>
 
     <main>
-        <!-- modelo de todas as seções -->
-         <div class="container-secao">
-            <section class="bloco-secao"  id="secao-1">
+        <!-- TÍTULO: PROBLEMA -->
+        <section class="container-secao" id="secao-1">
+            <h2>Problema</h2>
+        </section>
 
-                <!-- No h2: Colocar nome do problema que vamos trabalhar -->
-                <h2>problema</h2>
+        <!-- IMAGEM DESTACADA -->
+        <section id="imgbanner">
+            <img src="./src/imgs/enchente.jpeg" alt="Imagem de enchente" style="width: 100%; display: block;">
+        </section>
 
-                <!-- imagem para criar conexão emocional e exemplificar o tema da seção -->
-                <img src="">
+        <!-- TEXTO DO PROBLEMA -->
+        <section class="container-secao">
+            <p>As enchentes no Brasil são tragédias recorrentes que afetam milhões de cidadãos todos os anos.</p>
+            <p>Falta de prevenção, drenagem urbana deficiente e mudanças climáticas tornam a situação ainda mais grave.</p>
+        </section>
 
-                <!-- Dois parágrafos de até 20 palavras cada, explicando o tema da seção -->
-                <p>Parágrafo aqui</p>
-                <p>aqui também</p>
+        <!-- SEÇÃO: TECNOLOGIAS -->
+        <section class="container-secao" id="secao-2">
+            <h2>Tecnologias Utilizadas</h2>
 
-            </section>
-        </div>
+        <!-- IMAGEM DA TECNOLOGIA -->
+            <img src="src/imgs/tecnologia.jpg" alt="Imagem representando tecnologia aplicada" style="width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px;">
+            <p>Utilizamos sensores de umidade e nível de água integrados a um microcontrolador (Arduino) para monitoramento ambiental em tempo real. O sistema é capaz de detectar situações de risco com precisão.</p>
+            <p>As informações são exibidas em uma plataforma web com interface simples e acessível, permitindo que qualquer pessoa possa visualizar os alertas. A solução também utiliza LEDs de status, EEPROM para armazenar dados e pode ser expandida com APIs externas.</p>
+        </section>
 
-         <div class="container-secao">
-            <section class="bloco-secao"  id="secao-2">
-                <h2>TECNOLOGIAS UTILIZADAS</h2>
-                <img>
-                <p></p>
-                <p></p>
-            </section>
-        </div>
+        <!-- SEÇÃO: OBJETIVOS -->
+        <section class="container-secao" id="secao-3">
+            <h2>Objetivos</h2>
 
-         <div class="container-secao">
-            <section class="bloco-secao"  id="secao-3">
-                <h2>OBJETIVOS</h2>
-                <img>
-                <p></p>
-                <p></p>
-            </section>
-        </div>
+        <!-- IMAGEM DO OBJETIVO -->
+            <img src="src/imgs/objetivo.jpg" alt="Imagem representando tecnologia aplicada" style="width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px;">
+            <p>Nosso principal objetivo é prevenir e mitigar os impactos das enchentes por meio da tecnologia, oferecendo uma ferramenta acessível, confiável e eficiente para monitoramento em tempo real.</p>
+            <p>Além disso, buscamos promover uma cultura de prevenção, incentivando prefeituras, escolas e comunidades a adotarem soluções tecnológicas como aliadas na gestão de riscos ambientais.</p>
+        </section>
 
-         <div class="container-secao">
-             <section class="bloco-secao"  id="secao-4">
-                <h2>PÚBLICO-ALVO</h2>
-                <img>
-                <p></p>
-                <p></p>
-            </section>
-        </div>
+        <!-- SEÇÃO: PÚBLICO-ALVO -->
+        <section class="container-secao" id="secao-4">
+            <h2>Público-Alvo</h2>
 
-         <div class="container-secao">
-             <section class="bloco-secao"  id="secao-5">
-                <h2>BENEFÍCIOS</h2>
-                <img>
-                <p></p>
-                <p></p>
-            </section>
-        </div>
+        <!-- IMAGEM DO PÚBLICO-ALVO -->
+            <img src="src/imgs/publico.png" alt="Imagem representando tecnologia aplicada" style="width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px;">    
+            <p>A solução foi desenvolvida para atender moradores de regiões urbanas sujeitas a alagamentos, especialmente em comunidades vulneráveis.</p>
+            <p>Também é voltada para órgãos públicos, Defesa Civil, escolas e organizações que atuam com educação ambiental, gestão de risco e planejamento urbano.</p>
+        </section>
 
-         <div class="container-secao">
-            <section class="bloco-secao" id="secao-6">
-                <h2>COMO UTILIZAR NOSSA SOLUÇÃO NO DIA A DIA?</h2>
-                <img >
-                <p></p>
-                <p></p>
-            </section>
-        </div>
+        <!-- SEÇÃO: BENEFÍCIOS -->
+        <section class="container-secao" id="secao-5">
+            <h2>Benefícios</h2>
+
+        <!-- IMAGEM DOS BENEFÍCIOS -->
+            <img src="src/imgs/beneficios.png" alt="Imagem representando tecnologia aplicada" style="width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px;"> 
+            <p>Com o uso da solução, será possível antecipar situações de risco, emitir alertas rápidos e evitar perdas humanas e materiais.</p>
+            <p>Ela também fortalece a participação da comunidade, melhora a resposta das autoridades e contribui para um ambiente mais seguro, sustentável e preparado para mudanças climáticas.</p>
+        </section>
+
+        <!-- SEÇÃO: UTILIZAÇÃO -->
+        <section class="container-secao" id="secao-6">
+            <h2>Como Utilizar Nossa Solução no Dia a Dia?</h2>
+
+        <!-- IMAGEM DO UTILIZAÇÃO -->
+            <img src="src/imgs/utilizar.webp" alt="Imagem representando tecnologia aplicada" style="width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px;">
+            <p>A plataforma pode ser acessada por aplicativo ou navegador, com alertas em tempo real via SMS, notificação ou sinal luminoso.</p>
+            <p>O sistema é simples de instalar, requer manutenção mínima e pode ser integrado a sistemas já existentes, permitindo seu uso por famílias, escolas e órgãos públicos com facilidade e eficiência.</p>
+        </section>
     </main>
 
-     <section class="mini-secao-final">
-        <h2>Conheça também nosso simulador</h2>
-        <p>Acesse uma nova página com funcionalidades interativas do HydroSafe.</p>
-        <a href="./src/pages/simulador.html" class="botao-navegar">Ir para o Simulador</a>
-    </section>
+        <!-- SEÇÃO FINAL COM BOTÃO -->
+        <section class="mini-secao-final">
+            <h2>Conheça também nosso simulador</h2>
+            <p>Acesse uma nova página com funcionalidades interativas do HydroSafe.</p>
+            <a href="./src/pages/simulador.html" class="botao-navegar">Ir para o Simulador</a>
+        </section>
 
-    <footer class="rodape">
-  <div class="rodape-container">
-    <p>&copy; 2025 Global Solution | Desenvolvido por Geovana Cardoso e Mariana Egito</p>
-    <div class="rodape-links">
-      <a href="#secao-1">Problema</a>
-      <a href="#secao-2">Tecnologias</a>
-      <a href="#secao-3">Objetivos</a>
-      <a href="#secao-4">Público-alvo</a>
-      <a href="#secao-5">Benefícios</a>
-      <a href="#secao-6">Utilização</a>
-    </div>
-  </div>
-</footer>
-
+        <!-- RODAPÉ -->
+        <footer class="rodape">
+            <div class="rodape-container">
+                <p>&copy; 2025 Global Solution | Desenvolvido por Geovana Cardoso e Mariana Egito</p>
+                <div class="rodape-links">
+                    <a href="#secao-1">Problema</a>
+                    <a href="#secao-2">Tecnologias</a>
+                    <a href="#secao-3">Objetivos</a>
+                    <a href="#secao-4">Público-alvo</a>
+                    <a href="#secao-5">Benefícios</a>
+                    <a href="#secao-6">Utilização</a>
+                </div>
+            </div>
+        </footer>
 </body>
+
 </html>
+ 
