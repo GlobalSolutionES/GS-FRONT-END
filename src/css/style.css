@@ -156,6 +156,46 @@ section p {
   color: #fff; /*Aqui é a cor das letras do parágrafo*/
 }
 
+.mini-secao-final {
+  background-color: #ecf0f1; /* tom claro suave que contrasta com o rodapé escuro */
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mini-secao-final h2 {
+  font-size: 28px;
+  color: #2C3E50;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mini-secao-final p {
+  font-size: 18px;
+  color: #34495e;
+  margin-bottom: 30px;
+}
+
+.botao-navegar {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2C3E50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.botao-navegar:hover {
+  background-color: #34495e;
+  transform: scale(1.05);
+}
+
+
 .rodape {
   background-color: rgba(44, 62, 80, 0.9); /* azul escuro translúcido */
   color: #fff;
