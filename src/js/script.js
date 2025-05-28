@@ -2,16 +2,15 @@
 
 //Declarando o array de imagens
 let imagens = [
-    'src/assets/imagem1',  //onde tá escrito imagem1 é para colocar o nome do arquivo da imagem
-    'src/assets/imagem2',
-    'src/assets/imagem3'
+    '../imgs/enchente1.webp',  //onde tá escrito imagem1 é para colocar o nome do arquivo da imagem
+    '../imgs/enchente2.webp',
+    '../imgs/enchente3.jpeg'
 ];
 
 //Declarando array de legendas de cada imagem
-let legendas = ['nome da imagem — fonte da imagem', //Aqui são as legendas de cada imagem
-    'nome da imagem — fonte da imagem',
-    'nome da imagem — fonte da imagem'
-    
+let legendas = ['Pessoas caminham em uma rua inundada devido a fortes enchentes no bairro propenso a inundações de Jardim Pantanal, em São Paulo, Brasil, 4 de fevereiro de 2025. REUTERS/Tuane Fernandes', //Aqui são as legendas de cada imagem
+    'Enchentes provocadas pelas chuvas deixaram 1,4 milhão de pessoas desabrigadas, segundo IBGE. Antonio Cruz/Agência Brasil',
+    'O Acre sobre com enchentes (foto); mais de 32.000 pessoas foram afetadas pelas cheias do Rio Acre. Foto - Poder360'
 ];
 
 //Declarando as variáveis
