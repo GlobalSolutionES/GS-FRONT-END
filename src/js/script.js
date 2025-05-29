@@ -34,3 +34,106 @@ function slideShow(){
 //Chamando a função
 slideShow();
 
+document.addEventListener('DOMContentLoaded', () => {
+  const initialOptions = document.getElementById('opcaoInicial');
+  const loginForm = document.getElementById('formLogin');
+  const registerForm = document.getElementById('formCad');
+  const userInfo = document.getElementById('infoUser');
+
+  const btnLogin = document.getElementById('btnLogin');
+  const btnCad = document.getElementById('btnCad');
+  const backFromLogin = document.getElementById('voltarLogin');
+  const backFromRegister = document.getElementById('voltarCad');
+  const logoutButton = document.getElementById('btnSair');
+
+  const loginMessage = document.getElementById('mensagemLogin');
+  const registerMessage = document.getElementById('mensagemCad');
+
+  btnLogin.addEventListener('click', () => {
+    hideAll();
+    loginForm.classList.remove('esconder');
+  });
+
+  btnCad.addEventListener('click', () => {
+    hideAll();
+    registerForm.classList.remove('esconder');
+  });
+
+  backFromLogin.addEventListener('click', () => {
+    hideAll();
+    initialOptions.classList.remove('esconder');
+    loginMessage.textContent = '';
+    loginMessage.className = 'message';
+  });
+
+  backFromRegister.addEventListener('click', () => {
+    hideAll();
+    initialOptions.classList.remove('esconder');
+    registerMessage.textContent = '';
+    registerMessage.className = 'message';
+  });
+
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('loggedUser');
+    hideAll();
+    initialOptions.classList.remove('esconder');
+  });
+
+  function hideAll() {
+    loginForm.classList.add('esconder');
+    registerForm.classList.add('esconder');
+    userInfo.classList.add('esconder');
+    initialOptions.classList.add('esconder');
+  }
+
+  // Cadastro
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nome = document.getElementById('cadNome').value;
+    const idade = document.getElementById('cadIdade').value;
+    const local = document.getElementById('cadLocal').value;
+    const emailOuUser = document.getElementById('cadEmail').value;
+    const senha = document.getElementById('cadSenha').value;
+
+    if (localStorage.getItem(`user_${emailOuUser}`)) {
+      registerMessage.textContent = 'Usuário já existe.';
+      registerMessage.className = 'message error';
+    } else {
+      localStorage.setItem(`user_${emailOuUser}`, senha);
+      localStorage.setItem(`nome_${emailOuUser}`, nome);
+      localStorage.setItem(`idade_${emailOuUser}`, idade);
+      localStorage.setItem(`local_${emailOuUser}`, local);
+      registerMessage.textContent = 'Cadastro realizado com sucesso!';
+      registerMessage.className = 'message success';
+      registerForm.reset();
+    }
+  });
+
+  // Login
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('loginUser').value;
+    const password = document.getElementById('loginSenha').value;
+
+    const storedPassword = localStorage.getItem(`user_${username}`);
+    if (storedPassword && storedPassword === password) {
+      const nome = localStorage.getItem(`nome_${username}`) || 'Não informado';
+      const idade = localStorage.getItem(`idade_${username}`) || 'Não informada';
+      const local = localStorage.getItem(`local_${username}`) || 'Não informado';
+
+      document.getElementById('info-nome').textContent = nome;
+      document.getElementById('info-idade').textContent = idade;
+      document.getElementById('info-local').textContent = local;
+      document.getElementById('info-email').textContent = username;
+
+      hideAll();
+      userInfo.classList.remove('esconder');
+    } else {
+      loginMessage.textContent = 'Usuário ou senha incorretos.';
+      loginMessage.className = 'message error';
+    }
+  });
+});
+
+
+

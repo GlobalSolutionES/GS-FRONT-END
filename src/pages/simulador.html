@@ -34,11 +34,49 @@
         </section>
     </div>
 
+    <!-- Seção do formulário -->
     <div class="container-secao">
         <section class="bloco-secao" id="form">
-            <!-- Seção do formulário -->
+            <h2>Formulário</h2>
+            <P>Cadastre-se para receber atualizações!</P>
+
+            <div id="opcaoInicial">
+                <button id="btnLogin">Login</button>
+                <button id="btnCad">Cadastrar</button>
+            </div>
+
+            <form id="formLogin" class="esconder">
+                <h2>Login</h2>
+                <input type="text" id="loginUser" placeholder="Usuário ou E-mail" required>
+                <input type="password" id="loginSenha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+                <button type="button" id="voltarLogin">Voltar</button>
+                <div id="mensagemLogin" class="message"></div>
+            </form>
+
+            <form id="formCad" class="esconder">
+                <h2>Cadastro</h2>
+                <input type="text" id="cadNome" placeholder="Nome completo" required>
+                <input type="number" id="cadIdade" placeholder="Idade" required>
+                <input type="text" id="cadLocal" placeholder="Local onde mora" required>
+                <input type="text" id="cadEmail" placeholder="Usuário ou E-mail" required>
+                <input type="password" id="cadSenha" placeholder="Senha" required>
+                <button type="submit">Cadastrar</button>
+                <button type="button" id="voltarCad">Voltar</button>
+                <div id="mensagemCad" class="message"></div>
+            </form>
+
+            <div id="infoUser" class="esconder">
+                <h2>Informações do Usuário</h2>
+                <p><strong>Nome:</strong> <span id="info-nome"></span></p>
+                <p><strong>Idade:</strong> <span id="info-idade"></span></p>
+                <p><strong>Local:</strong> <span id="info-local"></span></p>
+                <p><strong>E-mail/Usuário:</strong> <span id="info-email"></span></p>
+                <button id="btnSair">Sair</button>
+            </div>
         </section>
     </div>
+
 
      <div class="container-secao">
         <section class="bloco-secao" id="quiz">
