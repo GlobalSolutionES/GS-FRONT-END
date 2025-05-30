@@ -80,7 +80,57 @@
 
      <div class="container-secao">
         <section class="bloco-secao" id="quiz">
+
             <!-- Seção do quiz -->
+
+            <h1>Questionário sobre Enchentes</h1>
+
+            <section id="container-perguntas">
+                <h2 id="pergunta"></h2>
+                <div id="container-respostas">
+                    <input type="text" id="resposta" placeholder="Digite sua resposta:">
+                    <select id="select-estado" class="hidden">
+                        <option value="">Selecione um estado</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Distrito Federal</option>
+                        <option>Espírito Santo</option>
+                        <option>Goiás</option>
+                        <option>Maranhão</option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará</option>
+                        <option>Paraíba</option>
+                        <option>Paraná</option>
+                        <option>Pernambuco</option>
+                        <option>Piauí</option>
+                        <option>Rio de Janeiro</option>
+                        <option>Rio Grande do Norte</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondônia</option>
+                        <option>Roraima</option>
+                        <option>Santa Catarina</option>
+                        <option>São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins</option>
+                    </select>
+                </div>
+                 <button id="proximo">Próxima pergunta</button>
+                 <p id="message"></p>
+            </section>
+
+             <section id="container-resultado" class="hidden">
+                <h2>Resultado do Quiz</h2>
+                <ul id="lista-resultado"></ul>
+                <p id="risco-enchente"></p>
+                <button id="inicio-btn">Reiniciar</button>
+            </section>
+
         </section>
     </div>
 

@@ -34,6 +34,8 @@ function slideShow(){
 //Chamando a função
 slideShow();
 
+//Parte do formulário (com registro de info no localStorage e exibição delas)
+
 document.addEventListener('DOMContentLoaded', () => {
   const initialOptions = document.getElementById('opcaoInicial');
   const loginForm = document.getElementById('formLogin');
@@ -134,6 +136,122 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+//Parte do Quiz
+
+document.addEventListener('DOMContentLoaded', () => {
+  const pergunta = document.getElementById('pergunta');
+  const respostaInput = document.getElementById('resposta');
+  const selectEstado = document.getElementById('select-estado');
+  const proximaPergunta = document.getElementById("proximo");
+  const mensagem = document.getElementById('message');
+  const containerPerguntas = document.getElementById('container-perguntas');
+  const containerResultado = document.getElementById('container-resultado');
+  const listaResultado = document.getElementById('lista-resultado');
+  const riscoTexto = document.getElementById('risco-enchente');
+  const reiniciarBotao = document.getElementById('inicio-btn');
+
+  const questoes = [
+    "Qual seu nome?",
+    "Qual sua idade?",
+    "Em qual estado você mora?",
+    "Você já presenciou enchentes na sua região?",
+    "Sua casa fica próxima a rios ou córregos?",
+    "Existe sistema de drenagem eficiente na sua rua?",
+    "A região onde você mora sofre com alagamentos frequentes?",
+    "Você ou sua família já foi prejudicada por enchentes?"
+  ];
+
+  let perguntas = 0;
+  const respostas = [];
+
+  function mostrarPergunta() {
+    if (perguntas < questoes.length) {
+      pergunta.textContent = questoes[perguntas];
+      mensagem.textContent = '';
+
+      if (questoes[perguntas].includes("estado")) {
+        respostaInput.classList.add('hidden');
+        selectEstado.classList.remove('hidden');
+        selectEstado.value = "";
+      } else {
+        respostaInput.classList.remove('hidden');
+        selectEstado.classList.add('hidden');
+        respostaInput.value = "";
+      }
+    } else {
+      mostrarResultado();
+    }
+  }
+
+  function avaliarRisco(estado) {
+    const alto = ["Minas Gerais", "São Paulo", "Rio de Janeiro", "Espírito Santo", "Santa Catarina", "Rio Grande do Sul", "Bahia", "Maranhão", "Pernambuco", "Pará", "Amazonas"];
+    const medio = ["Paraná", "Ceará", "Mato Grosso", "Mato Grosso do Sul"];
+
+    if (alto.includes(estado)) {
+      return "Alto risco de enchentes.";
+    } else if (medio.includes(estado)) {
+      return "Médio risco de enchentes.";
+    } else {
+      return "Baixo risco de enchentes.";
+    }
+  }
+
+  function mostrarResultado() {
+    containerPerguntas.classList.add('hidden');
+    containerResultado.classList.remove('hidden');
+    listaResultado.innerHTML = '';
+
+    questoes.forEach((q, index) => {
+      const item = document.createElement('li');
+      item.innerHTML = `<strong>${q}</strong><br>Sua Resposta: <span>${respostas[index]}</span>`;
+      listaResultado.appendChild(item);
+    });
+
+    const estadoUsuario = respostas[2].trim();
+    riscoTexto.textContent = `⚠️ ${avaliarRisco(estadoUsuario)}`;
+  }
+
+  function nextQuestao() {
+  let respostaAtual = "";
+
+  if (questoes[perguntas].includes("estado")) {
+    respostaAtual = selectEstado.value.trim();
+    if (respostaAtual === "") {
+      mensagem.textContent = "Por favor, selecione um estado.";
+      return;
+    }
+  } else {
+    respostaAtual = respostaInput.value.trim();
+    if (respostaAtual === "") {
+      mensagem.textContent = "Por favor, digite sua resposta.";
+      return;
+    }
+  }
+
+  // Se passou pela validação, adiciona a resposta e vai para a próxima pergunta
+  respostas.push(respostaAtual);
+  perguntas++;
+  mostrarPergunta();
+}
+
+  function reiniciarQuiz() {
+    perguntas = 0;
+    respostas.length = 0;
+    containerResultado.classList.add('hidden');
+    containerPerguntas.classList.remove('hidden');
+    mostrarPergunta();
+  }
+
+  proximaPergunta.addEventListener('click', nextQuestao);
+  reiniciarBotao.addEventListener('click', reiniciarQuiz);
+
+  mostrarPergunta();
+});
+
+
+
 
 
 
