@@ -67,25 +67,50 @@
   width: 100%;
  }
 
- /* Para responsividade */
- @media (max-width: 768px) {
+ /* Botão hambúrguer  (oculto por padrão) */
+#botao-menu {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   header {
-    flex-direction: column;
+    flex-direction:row;
     align-items: flex-start;
     padding: 15px;
   }
+
   header h1 {
-    margin-bottom: 25px;
+   margin-top: 15px;
   }
-  header ul {
+
+  /* Mostrar botão hambúrguer */
+  #botao-menu {
+    display: block;
+  }
+
+  /* Ocultar menu por padrão */
+  #links-menu {
+    display: none;
     flex-direction: column;
     gap: 10px;
     width: 100%;
   }
+
+  /* Mostrar menu quando ativo */
+  #links-menu.ativo {
+    display: flex;
+  }
+
   header li a {
     font-size: 18px;
   }
- }
+}
 
  /* Seções gerais */
  .container-secao {

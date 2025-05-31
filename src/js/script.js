@@ -302,5 +302,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+//Parte do menu Hambúrguer
 
+const botaoMenu = document.getElementById("botao-menu");
+  const linksMenu = document.getElementById("links-menu");
+
+  botaoMenu.addEventListener("click", () => {
+    linksMenu.classList.toggle("ativo");
+  });
 
