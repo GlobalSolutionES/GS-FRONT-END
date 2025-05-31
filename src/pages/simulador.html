@@ -12,7 +12,13 @@
 <body> 
      <header id="cabecalho">
         <h1>HydroSafe</h1>
-        <button id="botao-menu" aria-label="Abrir menu">☰</button>
+
+        <!-- Caixa de seleção escondida (menu hamburguer para dispositivos móveis) -->
+        <input type="checkbox" id="menu-toggle" />
+         <!-- Ícone do menu -->
+        <label for="menu-toggle" id="botao-menu" aria-label="Abrir menu">☰</label>
+
+
         <ul id="links-menu">
             <li><a href="../../index.html">VOLTAR</a></li>
             <li><a href="#apresentacao">INÍCIO</a></li>

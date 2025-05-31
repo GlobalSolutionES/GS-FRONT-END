@@ -36,7 +36,7 @@
  header ul {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 20px;
  }
 
  header li a {
@@ -67,47 +67,52 @@
   width: 100%;
  }
 
- /* Botão hambúrguer  (oculto por padrão) */
+ /* Esconde o botão do menu e a caixa de seleção no desktop */
+#menu-toggle {
+  display: none;
+}
+
 #botao-menu {
   display: none;
-  font-size: 28px;
+  font-size: 30px;
   background: none;
   border: none;
-  color: white;
   cursor: pointer;
 }
 
-/* Responsividade */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   header {
-    flex-direction:row;
+    flex-direction: column;
     align-items: flex-start;
-    padding: 15px;
+    padding: 15px; 
+    
   }
-
-  header h1 {
-   margin-top: 15px;
-  }
-
-  /* Mostrar botão hambúrguer */
   #botao-menu {
     display: block;
+    font-size: 30px;
+    background: none;
+    border: none;
   }
 
-  /* Ocultar menu por padrão */
   #links-menu {
     display: none;
     flex-direction: column;
-    gap: 10px;
     width: 100%;
+    margin-top: 10px;
   }
 
-  /* Mostrar menu quando ativo */
-  #links-menu.ativo {
+  /* Quando o checkbox estiver marcado, exibe o menu */
+  #menu-toggle:checked + #botao-menu + #links-menu {
     display: flex;
+
   }
 
-  header li a {
+  header h1 {
+    margin-bottom: 10px;
+  }
+
+  #links-menu li a {
     font-size: 18px;
   }
 }
