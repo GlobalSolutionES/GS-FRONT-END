@@ -80,6 +80,43 @@
   cursor: pointer;
 }
 
+/*bolinhas*/
+.bolinhas-tema {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bolinha {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor1) 50%, var(--cor2) 50%);
+  cursor: pointer;
+}
+
+/*cores das bolinhas */
+#tema-classico-header { /*bolinha clássica*/
+  --cor1: #2C3E50;
+  --cor2: #ffffff;
+}
+
+#tema-aqua-header { /*aqua*/
+  --cor1: #2a9d8f;
+  --cor2: #e9f5f9;
+}
+
+#tema-quente-header { /*quente*/
+  --cor1: #e07a5f;
+  --cor2: #fff8e6;
+}
+
+#tema-lilas-header { /*lilás*/
+  --cor1: #6a4c93;
+  --cor2: #f5e9f9;
+}
+
+
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
   header {
@@ -309,7 +346,6 @@
 #form button {
   padding: 15px 30px;
   margin: 10px 5px;
-  background-color: #2C3E50;
   color: white;
   border: none;
   border-radius: 25px;
@@ -535,12 +571,12 @@ button:active {
 
 .opcao-cor::before {
     left: calc(50% - 35px);
-    background-color: #f8f9fa; /* Cor de fundo padrão */
+    background-color: #ffffff; /* Cor de fundo padrão */
 }
 
 .opcao-cor::after {
     left: calc(50% + 5px);
-    background-color: #343a40; /* Cor de destaque padrão */
+    background-color: #2C3E50; /* Cor de destaque padrão */
 }
 
 .opcao-cor:hover {

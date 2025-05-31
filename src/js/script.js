@@ -311,3 +311,22 @@ const linksMenu = document.getElementById("links-menu");
     linksMenu.classList.toggle("ativo");
   });
 
+//Personalização na header
+
+//As bolinhas da header ativam os mesmos temas
+document.getElementById("tema-classico-header").addEventListener("click", () => {
+  document.getElementById("tema-classico").click();
+});
+
+document.getElementById("tema-aqua-header").addEventListener("click", () => {
+  document.getElementById("tema-aqua").click();
+});
+
+document.getElementById("tema-quente-header").addEventListener("click", () => {
+  document.getElementById("tema-quente").click();
+});
+
+document.getElementById("tema-lilas-header").addEventListener("click", () => {
+  document.getElementById("tema-lilas").click();
+});
+
