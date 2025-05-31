@@ -139,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //Parte do Quiz
-
 document.addEventListener('DOMContentLoaded', () => {
   const pergunta = document.getElementById('pergunta');
   const respostaInput = document.getElementById('resposta');
@@ -160,7 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
     "Sua casa fica próxima a rios ou córregos?",
     "Existe sistema de drenagem eficiente na sua rua?",
     "A região onde você mora sofre com alagamentos frequentes?",
-    "Você ou sua família já foi prejudicada por enchentes?"
+    "Você ou sua família já foi prejudicada por enchentes?",
+    "O que pode causar o entupimento de bueiros e aumentar o risco de enchentes nas cidades?",
+    "Por que é perigoso tentar atravessar ruas alagadas durante uma enchente?",
+    "Qual o papel das áreas verdes na prevenção de enchentes urbanas?",
+    "Que atitude simples a população pode adotar para ajudar a prevenir enchentes?",
+    "O que deve ser feito com aparelhos eletrônicos durante uma enchente iminente?",
+    "O que é um sistema de alerta de enchentes e para que serve?",
+    "Na sua opinião, você tem o conhecimento esperado para agir diante de uma situação de Enchente?"
+  ];
+
+  const tiposResposta = [
+    "texto", "texto", "estado", "texto", "texto", "texto", "texto", "texto", "texto", "texto", "texto", "texto", "texto", "texto", "texto" 
   ];
 
   let perguntas = 0;
@@ -171,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pergunta.textContent = questoes[perguntas];
       mensagem.textContent = '';
 
-      if (questoes[perguntas].includes("estado")) {
+      if (tiposResposta[perguntas] === "estado") {
         respostaInput.classList.add('hidden');
         selectEstado.classList.remove('hidden');
         selectEstado.value = "";
@@ -190,11 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const medio = ["Paraná", "Ceará", "Mato Grosso", "Mato Grosso do Sul"];
 
     if (alto.includes(estado)) {
-      return "Alto risco de enchentes.";
+      return "Alto risco de enchentes no seu estado!";
     } else if (medio.includes(estado)) {
-      return "Médio risco de enchentes.";
+      return "Médio risco de enchentes no seu estado.";
     } else {
-      return "Baixo risco de enchentes.";
+      return "Baixo risco de enchentes no seu estado.";
     }
   }
 
@@ -214,27 +224,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function nextQuestao() {
-  let respostaAtual = "";
+    let respostaAtual = "";
 
-  if (questoes[perguntas].includes("estado")) {
-    respostaAtual = selectEstado.value.trim();
-    if (respostaAtual === "") {
-      mensagem.textContent = "Por favor, selecione um estado.";
-      return;
+    if (tiposResposta[perguntas] === "estado") {
+      respostaAtual = selectEstado.value.trim();
+      if (respostaAtual === "") {
+        mensagem.textContent = "Por favor, selecione um estado.";
+        return;
+      }
+    } else {
+      respostaAtual = respostaInput.value.trim();
+      if (respostaAtual === "") {
+        mensagem.textContent = "Por favor, digite sua resposta.";
+        return;
+      }
     }
-  } else {
-    respostaAtual = respostaInput.value.trim();
-    if (respostaAtual === "") {
-      mensagem.textContent = "Por favor, digite sua resposta.";
-      return;
-    }
+
+    respostas.push(respostaAtual);
+    perguntas++;
+    mostrarPergunta();
   }
-
-  // Se passou pela validação, adiciona a resposta e vai para a próxima pergunta
-  respostas.push(respostaAtual);
-  perguntas++;
-  mostrarPergunta();
-}
 
   function reiniciarQuiz() {
     perguntas = 0;
@@ -250,8 +259,48 @@ document.addEventListener('DOMContentLoaded', () => {
   mostrarPergunta();
 });
 
+//Parte do seletor de cores
+document.addEventListener('DOMContentLoaded', function() {
+    const temas = {
+        'tema-classico': { fundo: '#FFFFFF', destaque: '#2C3E50' },
+        'tema-aqua': { fundo: '#e9f5f9', destaque: '#2a9d8f' },
+        'tema-quente': { fundo: '#fff8e6', destaque: '#e07a5f' },
+        'tema-lilas': { fundo: '#f5e9f9', destaque: '#6a4c93' }
+    };
 
-
+    const opcoesCores = document.querySelectorAll('.opcao-cor');
+    
+    // Aplica as cores salvas ao carregar a página
+    const temaSalvo = localStorage.getItem('temaAtivo');
+    if (temaSalvo && temas[temaSalvo]) {
+        aplicarTema(temaSalvo);
+    }
+    
+    // Configura os listeners de clique
+    opcoesCores.forEach(opcao => {
+        opcao.addEventListener('click', function() {
+            const temaId = this.id;
+            if (temas[temaId]) {
+                aplicarTema(temaId);
+            }
+        });
+    });
+    
+    function aplicarTema(temaId) {
+        const tema = temas[temaId];
+        
+        // Aplica as cores
+        document.documentElement.style.setProperty('--cor-fundo', tema.fundo);
+        document.documentElement.style.setProperty('--cor-destaque', tema.destaque);
+        
+        // Atualiza a seleção visual
+        opcoesCores.forEach(opt => opt.classList.remove('ativa'));
+        document.getElementById(temaId).classList.add('ativa');
+        
+        // Salva a preferência
+        localStorage.setItem('temaAtivo', temaId);
+    }
+});
 
 
 

@@ -83,12 +83,13 @@
 
             <!-- Seção do quiz -->
 
-            <h1>Questionário sobre Enchentes</h1>
+            <h2>Questionário sobre Enchentes</h2>
 
             <section id="container-perguntas">
                 <h2 id="pergunta"></h2>
                 <div id="container-respostas">
                     <input type="text" id="resposta" placeholder="Digite sua resposta:">
+
                     <select id="select-estado" class="hidden">
                         <option value="">Selecione um estado</option>
                         <option>Acre</option>
@@ -135,8 +136,18 @@
     </div>
 
     <div class="container-secao">
-        <section class="bloco-secao" id="perso">
-            <!-- Seção para o usuário escolher a cor de fundo da página -->
+    <section class="bloco-secao" id="perso">
+          
+        <section class="seletor-cores">
+        <h2>Escolha sua paleta de cores</h2>
+        <div class="opcoes-cores">
+            <button class="opcao-cor" id="tema-classico">Clássico</button>
+            <button class="opcao-cor" id="tema-aqua"> Aqua</button>
+            <button class="opcao-cor" id="tema-quente">Quente</button>
+            <button class="opcao-cor" id="tema-lilas">Lilás</button>
+        </div>
+</section>
+
         </section>
     </div>
     </main>

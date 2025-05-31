@@ -11,6 +11,7 @@
   background-color: #FFFFFF;
   color: #2C3E50;
   padding-top: 70px; /* espaço para o header fixo */
+  transition: background-color 0.5s ease;
  }
 
  /* CABEÇALHO */
@@ -320,4 +321,250 @@
 }
 
 
+#quiz, #perso {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 16px;
+  padding: 20px;
+  width: 80%;
+}
+
+
  
+/* Container principal do quiz */
+#quiz-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  transition: all 0.4s ease;
+}
+
+/* Seções do quiz */
+section {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #1a237e;
+}
+
+/* Container de respostas */
+#container-respostas {
+  margin-bottom: 1rem;
+}
+
+/* Input de texto */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Mensagem de validação */
+#message {
+  color: #d32f2f;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  min-height: 1.5rem;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Botões */
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Resultado */
+#container-resultado {
+  text-align: center;
+}
+
+#lista-resultado {
+  text-align: left;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+#lista-resultado li {
+  background-color: #f1f1f1;
+  padding: 0.75rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Avaliação de risco */
+#risco-enchente {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #e53935;
+  animation: pulse 1.2s ease-in-out infinite alternate;
+}
+
+/* Utilitários */
+.hidden {
+  display: none;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+#perso h2 {
+  margin-bottom: 10px;
+  color: #023047;
+}
+
+/*AQUI - perso*/
+
+
+/* Estilos do seletor de cores*/
+.seletor-cores {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.opcoes-cores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.opcao-cor {
+    position: relative;
+    padding: 50px 15px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.opcao-cor::before,
+.opcao-cor::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+.opcao-cor::before {
+    left: calc(50% - 35px);
+    background-color: #f8f9fa; /* Cor de fundo padrão */
+}
+
+.opcao-cor::after {
+    left: calc(50% + 5px);
+    background-color: #343a40; /* Cor de destaque padrão */
+}
+
+.opcao-cor:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.opcao-cor.ativa {
+    border-color: #333;
+    font-weight: bold;
+}
+
+/* Cores específicas para cada tema */
+#tema-aqua::before { background-color: #e9f5f9; }
+#tema-aqua::after { background-color: #2a9d8f; }
+
+#tema-quente::before { background-color: #fff8e6; }
+#tema-quente::after { background-color: #e07a5f; }
+
+#tema-lilas::before { background-color: #f5e9f9; }
+#tema-lilas::after { background-color: #6a4c93; }
+
+:root {
+    --cor-fundo: #FFFFFF;
+    --cor-destaque: #2C3E50;
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
+
+header {
+    background-color: var(--cor-destaque);
+}
+
+h2 {
+    color: var(--cor-destaque);
+}
+
+button {
+    background-color: var(--cor-destaque);
+    color: white;
+}
+
+p {
+    color: var(--cor-destaque);
+}
+
+/* Rodapé com cor fixa */
+footer p {
+    color: #fff; /* Cor independente do tema */
+}
+
+.rodape  {
+  background-color: var(--cor-destaque);
+
+}
