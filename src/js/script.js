@@ -53,24 +53,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnLogin.addEventListener('click', () => {
     hideAll();
-    loginForm.classList.remove('esconder');
+    loginForm.classList.remove('hidden');
   });
 
   btnCad.addEventListener('click', () => {
     hideAll();
-    registerForm.classList.remove('esconder');
+    registerForm.classList.remove('hidden');
   });
 
   backFromLogin.addEventListener('click', () => {
     hideAll();
-    initialOptions.classList.remove('esconder');
+    initialOptions.classList.remove('hidden');
     loginMessage.textContent = '';
     loginMessage.className = 'message';
   });
 
   backFromRegister.addEventListener('click', () => {
     hideAll();
-    initialOptions.classList.remove('esconder');
+    initialOptions.classList.remove('hidden');
     registerMessage.textContent = '';
     registerMessage.className = 'message';
   });
@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function hideAll() {
-    loginForm.classList.add('esconder');
-    registerForm.classList.add('esconder');
-    userInfo.classList.add('esconder');
-    initialOptions.classList.add('esconder');
+    loginForm.classList.add('hidden');
+    registerForm.classList.add('hidden');
+    userInfo.classList.add('hidden');
+    initialOptions.classList.add('hidden');
   }
 
   // Cadastro
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('info-email').textContent = username;
 
       hideAll();
-      userInfo.classList.remove('esconder');
+      userInfo.classList.remove('hidden');
     } else {
       loginMessage.textContent = 'Usuário ou senha incorretos.';
       loginMessage.className = 'message error';
