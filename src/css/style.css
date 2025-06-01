@@ -93,29 +93,39 @@
   border-radius: 50%;
   background: linear-gradient(135deg, var(--cor1) 50%, var(--cor2) 50%);
   cursor: pointer;
+  transition: transform 0.2s;
+}
+/*Passar o cursor em cima da bolinha*/
+.bolinha:hover{
+transform: scale(1.1);
 }
 
 /*cores das bolinhas */
-#tema-classico-header { /*bolinha clássica*/
+[data-tema="tema-classico"] { /*bolinha clássica*/
   --cor1: #2C3E50;
   --cor2: #ffffff;
 }
 
-#tema-aqua-header { /*aqua*/
+[data-tema="tema-aqua"] { /*aqua*/
   --cor1: #2a9d8f;
   --cor2: #e9f5f9;
 }
 
-#tema-quente-header { /*quente*/
+[data-tema="tema-quente"] { /*quente*/
   --cor1: #e07a5f;
   --cor2: #fff8e6;
 }
 
-#tema-lilas-header { /*lilás*/
+[data-tema="tema-lilas"] { /*lilás*/
   --cor1: #6a4c93;
   --cor2: #f5e9f9;
 }
 
+/*Para mostrar a bolinha ativa no momento*/
+.bolinha.ativa{
+  outline: 2px solid var(--cor1);
+  box-shadow: 0 0 4px var(--cor1);
+}
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
@@ -201,7 +211,7 @@
 
  /* Mini seção final (que dá acesso ao simulador) */
  .mini-secao-final {
-  background-color: #ecf0f1;
+  background-color: var(--cor-fundo);
   padding: 60px 20px;
   text-align: center;
   margin-top: 60px;
@@ -225,7 +235,7 @@
  .botao-navegar {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #2C3E50;
+  background-color:var(--cor-destaque);
   color: #fff;
   text-decoration: none;
   border-radius: 30px;

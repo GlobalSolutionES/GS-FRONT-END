@@ -24,13 +24,12 @@
             <li><a href="#apresentacao">INÍCIO</a></li>
             <li><a href="#form">FORMULÁRIO</a></li> 
             <li><a href="#quiz">QUIZ</a></li>
-            <li><a href="#perso">PERSONALIZAÇÃO</a></li>
-            <li> 
+             <li>
                 <div class="bolinhas-tema">
-                    <button class="bolinha" id="tema-classico-header" aria-label="Clássico"></button>
-                    <button class="bolinha" id="tema-aqua-header" aria-label="Aqua"></button>
-                    <button class="bolinha" id="tema-quente-header" aria-label="Quente"></button>
-                    <button class="bolinha" id="tema-lilas-header" aria-label="Lilás"></button>
+                    <button class="bolinha" data-tema="tema-classico" aria-label="Clássico"></button>
+                    <button class="bolinha" data-tema="tema-aqua" aria-label="Aqua"></button>
+                    <button class="bolinha" data-tema="tema-quente" aria-label="Quente"></button>
+                    <button class="bolinha" data-tema="tema-lilas" aria-label="Lilás"></button>
                 </div>
             </li>
         </ul>
@@ -150,21 +149,6 @@
         </section>
     </div>
 
-    <div class="container-secao">
-    <section class="bloco-secao" id="perso">
-          
-        <section class="seletor-cores">
-        <h2>Escolha sua paleta de cores</h2>
-        <div class="opcoes-cores">
-            <button class="opcao-cor" id="tema-classico">Clássico</button>
-            <button class="opcao-cor" id="tema-aqua"> Aqua</button>
-            <button class="opcao-cor" id="tema-quente">Quente</button>
-            <button class="opcao-cor" id="tema-lilas">Lilás</button>
-        </div>
-</section>
-
-        </section>
-    </div>
     </main>
 
      <footer class="rodape">
@@ -182,5 +166,6 @@
 
     <!-- Chamando JavaScript externo -->
      <script src="../js/script.js"></script>
+     <script src="../js/perso.js"></script>
 </body>
 </html>
