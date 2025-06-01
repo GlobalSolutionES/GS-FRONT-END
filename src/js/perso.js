@@ -32,10 +32,23 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.style.setProperty('--cor-fundo', tema.fundo);
         document.documentElement.style.setProperty('--cor-destaque', tema.destaque);
 
-        // Atualiza visual (opcional: se quiser destacar o botão selecionado)
-        botoesTema.forEach(btn => btn.classList.remove('ativa'));
-        document.querySelectorAll(`[data-tema="${temaId}"]`).forEach(btn => btn.classList.add('ativa'));
+        //Atualiza visual
+        botoesTema.forEach(botao => botao.classList.remove('ativa'));
+        document.querySelectorAll(`[data-tema="${temaId}"]`).forEach(botao => botao.classList.add('ativa'));
 
         localStorage.setItem('temaAtivo', temaId);
     }
 });
+
+//Aparecer suave nas seções ao rolar (scroll reveal)
+
+const secoes = document.querySelectorAll('.container-secao');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('aparecer');
+    }
+  });
+}, { threshold: 0.1 });
+
+secoes.forEach(secao => observer.observe(secao));

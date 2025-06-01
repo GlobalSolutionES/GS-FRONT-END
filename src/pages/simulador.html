@@ -41,17 +41,17 @@
         <!-- Seção onde serão mostradas as imagens do tema das enchentes (problema ou solução) -->
 
     <div class="container-secao">
-        <section class="bloco-secao" id="apresentacao">
+        <section id="apresentacao">
             <h2>Enchentes no Brasil</h2>
             <!-- O script.js definirá o src -->
-            <img src="" id="imagens" alt="Imagem - Enchentes">
+            <img src="" id="imagens" alt="Imagens dos danos das Enchentes">
             <p id="legenda"></p>
         </section>
     </div>
 
     <!-- Seção do formulário -->
     <div class="container-secao">
-        <section class="bloco-secao" id="form">
+        <section  id="form">
             <h2>Formulário</h2>
             <P>Cadastre-se para receber atualizações!</P>
 
@@ -94,15 +94,17 @@
 
 
      <div class="container-secao">
-        <section class="bloco-secao" id="quiz">
+        <section id="quiz">
 
             <!-- Seção do quiz -->
 
             <h2>Questionário sobre Enchentes</h2>
 
             <section id="container-perguntas">
-                <h2 id="pergunta"></h2>
+                <h3 id="pergunta"></h3>
                 <div id="container-respostas">
+
+                    <label for="resposta"></label>
                     <input type="text" id="resposta" placeholder="Digite sua resposta:">
 
                     <select id="select-estado" class="hidden">
