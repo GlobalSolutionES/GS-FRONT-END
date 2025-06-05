@@ -260,3 +260,95 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+const map = L.map('mapaid').setView([-23.5505, -46.6333], 5);  
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+const dadosRios = [
+    {
+        nome: "Rio Amazonas",
+        regiao: "Norte",
+        coordenadas: [-3.1, -60.0],
+        nivel: "Alto"
+    },
+    {
+        nome: "Rio São Francisco",
+        regiao: "Nordeste",
+        coordenadas: [-10.0, -40.0],
+        nivel: "Normal"
+    },
+    {
+        nome: "Rio Paraná",
+        regiao: "Sul",
+        coordenadas: [-23.3, -51.2],
+        nivel: "Baixo"
+    },
+    {
+        nome: "Rio Paraíba do Sul",
+        regiao: "Sudeste",
+        coordenadas: [-22.5, -44.6],
+        nivel: "Normal"
+    },
+    {
+        nome: "Rio Araguaia",
+        regiao: "Centro-Oeste",
+        coordenadas: [-13.3, -50.6],
+        nivel: "Normal"
+    }
+];
+
+
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Raio da Terra em km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+function mapa(e) {
+    const lat = e.latlng.lat;
+    const lon = e.latlng.lng;
+    const locationInfo = document.getElementById('localizacao');
+
+    let rioMaisProximo = null;
+    let menorDistancia = Infinity;
+
+    dadosRios.forEach(rio => {
+        const [latRio, lonRio] = rio.coordenadas;
+        const dist = calcularDistancia(lat, lon, latRio, lonRio);
+
+        if (dist < menorDistancia) {
+            menorDistancia = dist;
+            rioMaisProximo = rio;
+        }
+    });
+
+    let mensagem = `Localização: Latitude ${lat.toFixed(5)}, Longitude ${lon.toFixed(5)}.`;
+
+    // Definindo um limite de 500 km para considerar "próximo"
+    if (rioMaisProximo && menorDistancia < 500) {
+        mensagem += `<br>Rio mais próximo: <strong>${rioMaisProximo.nome}</strong> (${rioMaisProximo.regiao})<br>Nível atual: <strong>${rioMaisProximo.nivel}</strong>`;
+    } else {
+        mensagem += "<br><strong>Nenhum rio conhecido está próximo deste ponto.</strong>";
+    }
+
+    locationInfo.innerHTML = mensagem;
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup(mensagem)
+        .openPopup();
+}
+
+map.on('click', mapa);
+
+dadosRios.forEach(rio => {
+    L.marker(rio.coordenadas)
+     .addTo(map)
+     .bindPopup(`<strong>${rio.nome}</strong><br>Região: ${rio.regiao}<br>Nível: ${rio.nivel}`);
+});

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- API para parte do mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 
     <title>HydroSafe</title>
 </head>
@@ -24,6 +28,7 @@
             <li><a href="#apresentacao">INÍCIO</a></li>
             <li><a href="#form">FORMULÁRIO</a></li> 
             <li><a href="#quiz">QUIZ</a></li>
+            <li><a href="#mapa">MAPA</a></li>
              <li>
                 <div class="bolinhas-tema">
                     <button class="bolinha" data-tema="tema-classico" aria-label="Clássico"></button>
@@ -40,18 +45,18 @@
 
         <!-- Seção onde serão mostradas as imagens do tema das enchentes (problema ou solução) -->
 
-    <div class="container-secao">
-        <section id="apresentacao">
+    
+        <section class="container-secao"id="apresentacao">
             <h2>Enchentes no Brasil</h2>
             <!-- O script.js definirá o src -->
             <img src="" id="imagens" alt="Imagens dos danos das Enchentes">
             <p id="legenda"></p>
         </section>
-    </div>
+    
 
     <!-- Seção do formulário -->
-    <div class="container-secao">
-        <section  id="form">
+    
+        <section class="container-secao" id="form">
             <h2>Formulário</h2>
             <P>Cadastre-se para receber atualizações!</P>
 
@@ -90,11 +95,11 @@
                 <button id="btnSair">Sair</button>
             </div>
         </section>
-    </div>
+    
 
 
-     <div class="container-secao">
-        <section id="quiz">
+     
+        <section class="container-secao" id="quiz">
 
             <!-- Seção do quiz -->
 
@@ -150,7 +155,15 @@
             </section>
 
         </section>
-    </div>
+
+        <section class="container-secao" id="mapa">
+            <h2>Mapa Interativo</h2>
+            <p>Clique em algum ponto do mapa para obter a localização e informações de rios próximos.</p>
+            
+            <div id="mapaid" style="height: 400px;"></div>
+            <p id="localizacao"></p>
+        </section>
+    
  
     </main>
 
@@ -162,7 +175,7 @@
         <a href="#apresentacao">INÍCIO</a>
         <a href="#form">FORMULÁRIO</a> 
         <a href="#quiz">QUIZ</a>
-        <a href="#perso">PERSONALIZAÇÃO</a>
+        <a href="#mapa">MAPA</a>
     </div>
   </div>
 </footer>
